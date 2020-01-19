@@ -20,7 +20,8 @@ module.exports = {
         `http://api.github.com/users/${github_username}`
       );
 
-      const { name = login, avatar_url, bio } = response.data;
+      const { name, avatar_url, bio } = response.data;
+      name === null ? (name = github_username) : "";
 
       const techArray = passStringAsArray(techs);
 
